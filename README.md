@@ -1,6 +1,6 @@
 # infracost-estimate-cloud-costs
 
-# 🚀 A minimal Prometheus Server, Node Exporter, BlackBox Exporter and Grafana implementation with docker-compose. 🚀
+# 🚀 Cloud cost estimates for Terraform in pull requests💰📉 Love your cloud bill! 🚀
 
 https://github.com/coding-to-music/infracost-estimate-cloud-costs
 
