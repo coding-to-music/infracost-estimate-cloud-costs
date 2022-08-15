@@ -99,6 +99,16 @@ docker run --rm \
   -e INFRACOST_API_KEY=see_following_step_on_how_to_get_this \
   -v $PWD/:/code/ infracost/infracost:ci-latest breakdown --path /code/
   # Add other required flags/envs, e.g. --terraform-var-file or --terraform-var
+
+docker run --rm \
+  -e INFRACOST_API_KEY=$INFRACOST_API_KEY \
+  -v $PWD/:/code/ infracost/infracost:ci-latest breakdown --path /code/
+```
+
+Output
+
+```
+Error: Error processing module at '/code/cmd/infracost/testdata/breakdown_terragrunt_get_env/dev/terragrunt.hcl'. How this module was found: Terragrunt config file found in a subdirectory of /code/. Underlying error: /code/cmd/infracost/testdata/breakdown_terragrunt_get_env/dev/terragrunt.hcl:6,9-17: Error in function call; Call to function "get_env" failed: EnvVarNotFound: Required environment variable CUSTOM_OS_VAR - not found.
 ```
 
 ### 2. Get API key
