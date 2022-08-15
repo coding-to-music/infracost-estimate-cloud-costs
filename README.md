@@ -4,9 +4,9 @@
 
 https://github.com/coding-to-music/infracost-estimate-cloud-costs
 
-From / By Janshair Khan https://github.com/kjanshair
+From / By InfraCost https://github.com/infracost/infracost
 
-https://github.com/kjanshair/docker-prometheus
+https://github.com/infracost/infracost
 
 ## Environment variables:
 
