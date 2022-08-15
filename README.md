@@ -1,3 +1,31 @@
+# infracost-estimate-cloud-costs
+
+# 🚀 A minimal Prometheus Server, Node Exporter, BlackBox Exporter and Grafana implementation with docker-compose. 🚀
+
+https://github.com/coding-to-music/infracost-estimate-cloud-costs
+
+From / By Janshair Khan https://github.com/kjanshair
+
+https://github.com/kjanshair/docker-prometheus
+
+## Environment variables:
+
+```java
+
+```
+
+## GitHub
+
+```java
+git init
+git add .
+git remote remove origin
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:coding-to-music/infracost-estimate-cloud-costs.git
+git push -u origin main
+```
+
 <p align="center">
 <a href="https://www.infracost.io"><img src=".github/assets/logo.svg" alt="Infracost breakdown command" width="300" /></a>
 

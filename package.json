@@ -1,0 +1,24 @@
+{
+  "name": "infracost-estimate-cloud-costs",
+  "version": "1.0.0",
+  "description": "<p align=\"center\"> <a href=\"https://www.infracost.io\"><img src=\".github/assets/logo.svg\" alt=\"Infracost breakdown command\" width=\"300\" /></a>",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "deploy": "git add . && git commit -m Build && git push",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infracost/infracost.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/infracost/infracost/issues"
+  },
+  "homepage": "https://github.com/infracost/infracost#readme"
+}
