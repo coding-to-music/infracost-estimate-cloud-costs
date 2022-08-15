@@ -15,6 +15,7 @@
 *.out
 
 # Local
+.env
 .env.local
 vendor/
 
