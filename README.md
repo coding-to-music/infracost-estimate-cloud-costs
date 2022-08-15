@@ -77,3 +77,126 @@ Thanks to all the people who have contributed, including bug reports, code, feed
 ## License
 
 [Apache License 2.0](https://choosealicense.com/licenses/apache-2.0/)
+
+https://raw.githubusercontent.com/infracost/docs/master/docs/getting_started.md
+
+# Get started
+
+## description: Get started with Infracost in your Terraform workflow, integrate it into your CI pipeline and view cost estimates for your AWS/Azure/Google infrastructure.
+
+Infracost shows cloud cost estimates for Terraform. It lets DevOps, SRE and engineers see a cost breakdown and understand costs **before making changes**, either in the terminal or pull requests. This provides your team with a safety net as people can discuss costs as part of the workflow.
+
+If you're upgrading from an older version, see the [v0.10 migration guide](/docs/guides/v0.10_migration/).
+
+### 1. Install Infracost
+
+Get the latest Infracost release using docker:
+
+```shell
+docker pull infracost/infracost:ci-latest
+
+docker run --rm \
+  -e INFRACOST_API_KEY=see_following_step_on_how_to_get_this \
+  -v $PWD/:/code/ infracost/infracost:ci-latest breakdown --path /code/
+  # Add other required flags/envs, e.g. --terraform-var-file or --terraform-var
+```
+
+### 2. Get API key
+
+Register for a free API key, which is used by the CLI to retrieve prices from our Cloud Pricing API, e.g. get prices for instance types.
+
+:::note
+
+- No cloud credentials or secrets are [sent](/docs/faq/#what-data-is-sent-to-the-cloud-pricing-api) to the API and you can also [self-host](/docs/cloud_pricing_api/self_hosted/) it.
+- Infracost does not make any changes to your Terraform state or cloud resources.
+  :::
+
+```shell
+infracost auth login
+```
+
+The key can be retrieved with `infracost configure get api_key`.
+
+---
+
+### 3. Show cost estimate breakdown
+
+Infracost parses the project locally to determine resource types and quantities needed to calculate costs. The [`--path` flag](/docs/features/cli_commands/#breakdown) can point to a Terraform directory or plan JSON file.
+
+```shell
+# You can also: git clone https://github.com/infracost/example-terraform
+cd my-terraform-project
+```
+
+```shell
+# Terraform variables can be set using --terraform-var-file or --terraform-var
+infracost breakdown --path .
+```
+
+<p>
+Example output:
+<img src={useBaseUrl("img/screenshots/get-started-breakdown.png")} alt="Infracost breakdown command" />
+</p>
+
+:::tip
+Infracost can also estimate [usage-based resources](/docs/features/usage_based_resources/) such as AWS S3 or Lambda
+:::
+
+---
+
+### 4. Show cost estimate diff
+
+<ol type="i">
+  <li>Generate an Infracost JSON file as the baseline:</li>
+
+```shell
+infracost breakdown --path . --format json --out-file infracost-base.json
+```
+
+  <li>Edit your Terraform project. If you're using our example project, try changing the instance type:</li>
+
+```shell
+vim main.tf
+```
+
+  <li>Generate a diff by comparing the latest code change with the baseline:</li>
+
+```shell
+infracost diff --path . --compare-to infracost-base.json
+```
+
+</ol>
+
+<p>
+Example output:
+<img src={useBaseUrl("img/screenshots/get-started-diff.png")} alt="Infracost diff command" />
+</p>
+
+---
+
+### 5. Monitor cost estimates
+
+<ol type="i">
+  <li>The following environment variable instructs the CLI to send its JSON output to Infracost Cloud. This is our SaaS product that builds on top of Infracost open source and works with CI/CD integrations (next step). It enables team leads, managers and FinOps practitioners to see all cost estimates from a central place so they can help guide the team.</li>
+
+```shell
+INFRACOST_ENABLE_CLOUD=true infracost diff \
+    --path . --compare-to infracost-base.json
+```
+
+  <li>
+    Log in to <a href="https://dashboard.infracost.io">Infracost Cloud</a> > <b>Projects</b> page to see the cost estimate.
+  </li>
+</ol>
+
+<img src={useBaseUrl("img/infracost-cloud/dashboard-chart.png")} alt="Infracost Cloud dashboard showing pull request costs over the last 30 days" />
+
+---
+
+### 6. Add to your CI/CD
+
+[Use our CI/CD integrations](/docs/integrations/cicd) to add cost estimates to pull requests, it only takes 15 minutes. This provides your team with a safety net as people can understand cloud costs upfront, and discuss them as part of your workflow.
+
+If you run into any issues, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
+
+<img src={useBaseUrl("img/screenshots/actions-pull-request.png")} alt="Infracost pull request comment" />
