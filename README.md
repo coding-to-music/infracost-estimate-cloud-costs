@@ -90,7 +90,36 @@ If you're upgrading from an older version, see the [v0.10 migration guide](/docs
 
 ### 1. Install Infracost
 
-Get the latest Infracost release using docker:
+### macOS/Linux manual
+
+The easiest way is to use our install script:
+
+# Downloads the CLI based on your OS/arch and puts it in /usr/local/bin
+
+```
+curl -fsSL https://raw.githubusercontent.com/infracost/infracost/master/scripts/install.sh | sh
+```
+
+Or you can install it manually:
+
+- Download the archive for your platform from our releases.
+- Unarchive and copy it to one of the directories in your $PATH, e.g. /usr/local/bin:
+
+```
+tar xzf infracost-linux-amd64.tar.gz -C /tmp
+```
+
+```
+mv /tmp/infracost-linux-amd64 /usr/local/bin/infracost
+```
+
+Check that it works correctly:
+
+```
+infracost --version # Should show 0.10.10
+```
+
+### Get the latest Infracost release using docker:
 
 ```shell
 docker pull infracost/infracost:ci-latest
