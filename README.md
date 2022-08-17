@@ -137,7 +137,7 @@ docker run --rm \
 Output
 
 ```
-Error: Error processing module at '/code/cmd/infracost/testdata/breakdown_terragrunt_get_env/dev/terragrunt.hcl'. How this module was found: Terragrunt config file found in a subdirectory of /code/. Underlying error: /code/cmd/infracost/testdata/breakdown_terragrunt_get_env/dev/terragrunt.hcl:6,9-17: Error in function call; Call to function "get_env" failed: EnvVarNotFound: Required environment variable CUSTOM_OS_VAR - not found.
+
 ```
 
 ### 2. Get API key
