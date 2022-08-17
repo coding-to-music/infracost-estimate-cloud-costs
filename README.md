@@ -78,9 +78,9 @@ Thanks to all the people who have contributed, including bug reports, code, feed
 
 [Apache License 2.0](https://choosealicense.com/licenses/apache-2.0/)
 
-https://raw.githubusercontent.com/infracost/docs/master/docs/getting_started.md
-
 # Get started
+
+https://raw.githubusercontent.com/infracost/docs/master/docs/getting_started.md
 
 ## description: Get started with Infracost in your Terraform workflow, integrate it into your CI pipeline and view cost estimates for your AWS/Azure/Google infrastructure.
 
