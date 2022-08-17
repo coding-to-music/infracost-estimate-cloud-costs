@@ -28,6 +28,7 @@ examples/*/tfplan.binary
 examples/*/plan.json
 examples/*/example.json
 examples/*/example.save
+*.binary
 
 # Infracost artifacts
 **/.infracost

@@ -151,6 +151,10 @@ note
 
 ```shell
 infracost auth login
+
+# Or
+
+infracost configure set api_key MY_API_KEY
 ```
 
 The key can be retrieved with `infracost configure get api_key`.
@@ -170,9 +174,7 @@ cd path/to/code
 terraform init
 ### Customize this to how you run Terraform
 ### e.g. if you are using variables you can pass them with -var or -var-file
-```
 
-```
 terraform plan -out tfplan.binary
 terraform show -json tfplan.binary > plan.json
 
