@@ -82,7 +82,7 @@ Thanks to all the people who have contributed, including bug reports, code, feed
 
 https://raw.githubusercontent.com/infracost/docs/master/docs/getting_started.md
 
-## description: Get started with Infracost in your Terraform workflow, integrate it into your CI pipeline and view cost estimates for your AWS/Azure/Google infrastructure.
+## Get started with Infracost in your Terraform workflow, integrate it into your CI pipeline and view cost estimates for your AWS/Azure/Google infrastructure.
 
 Infracost shows cloud cost estimates for Terraform. It lets DevOps, SRE and engineers see a cost breakdown and understand costs **before making changes**, either in the terminal or pull requests. This provides your team with a safety net as people can discuss costs as part of the workflow.
 
@@ -90,7 +90,7 @@ If you're upgrading from an older version, see the [v0.10 migration guide](/docs
 
 ### 1. Install Infracost
 
-### macOS/Linux manual
+### macOS / Linux manual
 
 The easiest way is to use our install script:
 
@@ -144,11 +144,10 @@ Error: Error processing module at '/code/cmd/infracost/testdata/breakdown_terrag
 
 Register for a free API key, which is used by the CLI to retrieve prices from our Cloud Pricing API, e.g. get prices for instance types.
 
-:::note
+note
 
 - No cloud credentials or secrets are [sent](/docs/faq/#what-data-is-sent-to-the-cloud-pricing-api) to the API and you can also [self-host](/docs/cloud_pricing_api/self_hosted/) it.
 - Infracost does not make any changes to your Terraform state or cloud resources.
-  :::
 
 ```shell
 infracost auth login
@@ -156,7 +155,29 @@ infracost auth login
 
 The key can be retrieved with `infracost configure get api_key`.
 
----
+### Generating plan JSON files​
+
+By default, the Infracost CLI parses Terraform HCL code to estimate costs. If that does not work for your use-case, or you already have a Terraform plan JSON file, Infracost can also parse that. See the relevant Terraform CLI, Terraform Cloud or Terragrunt sections below on how to generate plans. These bash scripts can be modified and used in your CI/CD pipelines.
+
+Terraform CLI​
+The Terraform CLI can be used to produce a plan JSON file as shown below:
+
+Single project​
+
+```
+cd path/to/code
+
+terraform init
+### Customize this to how you run Terraform
+### e.g. if you are using variables you can pass them with -var or -var-file
+```
+
+```
+terraform plan -out tfplan.binary
+terraform show -json tfplan.binary > plan.json
+
+infracost breakdown --path plan.json
+```
 
 ### 3. Show cost estimate breakdown
 
