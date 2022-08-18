@@ -234,7 +234,7 @@ infracost diff --path . --compare-to infracost-base.json
 
 <p>
 Example output:
-<img src="img/screenshots/get-started-diff.png" alt="Infracost diff command" />
+<img src="img/get-started-diff.png" alt="Infracost diff command" />
 
 </p>
 
@@ -255,7 +255,7 @@ INFRACOST_ENABLE_CLOUD=true infracost diff \
   </li>
 </ol>
 
-<img src="img/infracost-cloud/dashboard-chart.png" alt="Infracost Cloud dashboard showing pull request costs over the last 30 days" />
+<img src="img/dashboard-chart.png" alt="Infracost Cloud dashboard showing pull request costs over the last 30 days" />
 
 ### 6. Add to your CI/CD
 
