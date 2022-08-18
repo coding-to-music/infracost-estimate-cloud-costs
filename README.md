@@ -8,6 +8,8 @@ From / By InfraCost https://github.com/infracost/infracost
 
 https://github.com/infracost/infracost
 
+https://www.infracost.io/
+
 ## Environment variables:
 
 ```java
@@ -197,7 +199,8 @@ infracost breakdown --path .
 
 <p>
 Example output:
-<img src={useBaseUrl("img/screenshots/get-started-breakdown.png")} alt="Infracost breakdown command" />
+
+<img src=".img/get-started-breakdown.png" alt="Infracost breakdown command" />
 </p>
 
 :::tip
@@ -231,7 +234,8 @@ infracost diff --path . --compare-to infracost-base.json
 
 <p>
 Example output:
-<img src={useBaseUrl("img/screenshots/get-started-diff.png")} alt="Infracost diff command" />
+<img src=".img/screenshots/get-started-diff.png" alt="Infracost diff command" />
+
 </p>
 
 ---
@@ -251,9 +255,7 @@ INFRACOST_ENABLE_CLOUD=true infracost diff \
   </li>
 </ol>
 
-<img src={useBaseUrl("img/infracost-cloud/dashboard-chart.png")} alt="Infracost Cloud dashboard showing pull request costs over the last 30 days" />
-
----
+<img src=".img/infracost-cloud/dashboard-chart.png" alt="Infracost Cloud dashboard showing pull request costs over the last 30 days" />
 
 ### 6. Add to your CI/CD
 
@@ -261,4 +263,42 @@ INFRACOST_ENABLE_CLOUD=true infracost diff \
 
 If you run into any issues, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
 
-<img src={useBaseUrl("img/screenshots/actions-pull-request.png")} alt="Infracost pull request comment" />
+<img src=".img/actions-pull-request.png" alt="Infracost pull request comment" />
+
+## Add to CI/CD
+
+Use one of our many integrations so DevOps, SRE and engineers see a cost estimate in pull requests **before making changes**. This provides your team with a safety net as people can understand cloud costs upfront, and discuss them as part of your workflow.
+
+Infracost can work with either a [Terraform directory](/docs/features/cli_commands/#option-1-terraform-directory) or [Terraform plan JSON](/docs/features/cli_commands/#option-2-terraform-plan-json).
+
+Screenshot of Infracost running in GitHub pull requests:
+
+<img src={useBaseUrl("img/actions-pull-request.png")} alt="Infracost pull request comment" />
+
+### Other CI/CD systems
+
+Infracost can be used in any CI/CD system using the following steps. Our [GitLab CI integration](https://gitlab.com/infracost/infracost-gitlab-ci/) follows these steps and has [examples](https://gitlab.com/infracost/infracost-gitlab-ci/#examples) that you might find useful.
+
+1. Use one of the following options to add the Infracost CLI into your CI/CD:
+
+   We maintain specific [CI Docker images](https://hub.docker.com/r/infracost/infracost/tags):
+
+   ```text
+   infracost/infracost:ci-0.10 - Recommended, use latest 0.10.x version to pick up bug fixes and new resource costs
+   infracost/infracost:ci-0.10.x - Lock the version, see versions in https://github.com/infracost/infracost/releases
+   infracost/infracost:ci-latest - Use latest Infracost image, might break when new minor/major versions are released
+   ```
+
+   Use `curl -O -L https://infracost.io/downloads/v0.10/infracost-linux-amd64.tar.gz` to download the latest 0.10.x version to pick up bug fixes and new resource costs. You can also use lock the version using our [releases](https://github.com/infracost/infracost/releases), or use [latest](tps://github.com/infracost/infracost/releases/latest/download/infracost-linux-amd64.tar.gz), which might break when new minor/major versions are released.
+
+2. If your infra code is in GitHub, GitLab and Azure Repos or Bitbucket, run the [breakdown, diff and comment commands](/docs/features/cli_commands/#comment-on-pull-requests) to generate a cost estimate and post a comment directly.
+
+Otherwise, run the [breakdown, diff and output commands](/docs/features/cli_commands/#combined-output-formats) to save the comment markdown (e.g. using `--format github-comment`) and post it from your CI/CD system using curl or other command line tools.
+
+You might also find the [environment variables](/docs/features/environment_variables) page useful.
+
+If you run into any issues, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
+
+### Third-party integrations
+
+Infracost can also be used alongside many other [third-party systems](/docs/integrations/third_party_integrations/) including Terraform Cloud/Enterprise, Env0, Scalr and Spacelift.
