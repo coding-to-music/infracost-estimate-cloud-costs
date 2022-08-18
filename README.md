@@ -200,7 +200,7 @@ infracost breakdown --path .
 <p>
 Example output:
 
-<img src=".img/get-started-breakdown.png" alt="Infracost breakdown command" />
+<img src="img/get-started-breakdown.png" alt="Infracost breakdown command" />
 </p>
 
 :::tip
@@ -234,7 +234,7 @@ infracost diff --path . --compare-to infracost-base.json
 
 <p>
 Example output:
-<img src=".img/screenshots/get-started-diff.png" alt="Infracost diff command" />
+<img src="img/screenshots/get-started-diff.png" alt="Infracost diff command" />
 
 </p>
 
@@ -255,7 +255,7 @@ INFRACOST_ENABLE_CLOUD=true infracost diff \
   </li>
 </ol>
 
-<img src=".img/infracost-cloud/dashboard-chart.png" alt="Infracost Cloud dashboard showing pull request costs over the last 30 days" />
+<img src="img/infracost-cloud/dashboard-chart.png" alt="Infracost Cloud dashboard showing pull request costs over the last 30 days" />
 
 ### 6. Add to your CI/CD
 
@@ -263,7 +263,7 @@ INFRACOST_ENABLE_CLOUD=true infracost diff \
 
 If you run into any issues, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
 
-<img src=".img/actions-pull-request.png" alt="Infracost pull request comment" />
+<img src="img/actions-pull-request.png" alt="Infracost pull request comment" />
 
 ## Add to CI/CD
 
