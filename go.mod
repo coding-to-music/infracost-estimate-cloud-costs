@@ -15,7 +15,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/ec2 v1.51.0
 	github.com/aws/aws-sdk-go-v2/service/s3 v1.27.1
 	github.com/awslabs/goformation/v4 v4.19.5
-	github.com/briandowns/spinner v1.15.0
+	github.com/briandowns/spinner v1.20.0
 	github.com/dave/dst v0.27.0
 	github.com/dustin/go-humanize v1.0.0
 	github.com/fatih/color v1.13.0
@@ -163,7 +163,7 @@ require (
 	github.com/xanzy/ssh-agent v0.3.0 // indirect
 	go.mozilla.org/gopgagent v0.0.0-20170926210634-4d7ea76ff71a // indirect
 	go.mozilla.org/sops/v3 v3.7.2 // indirect
-	golang.org/x/term v0.0.0-20210927222741-03fcf44c2211 // indirect
+	golang.org/x/term v0.1.0 // indirect
 	golang.org/x/time v0.0.0-20210723032227-1f47c861a9ac // indirect
 	gopkg.in/ini.v1 v1.44.0 // indirect
 	gopkg.in/square/go-jose.v2 v2.5.1 // indirect
